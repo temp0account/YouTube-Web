@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube-Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="YouTube-Web">
+    <link rel="apple-touch-icon" href="icons/icon-152x152.png">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="icons/icon-192x192.png" alt="YouTube-Web">
+            <h1>YouTube-Web</h1>
+        </div>
+        <button id="openYoutube" class="youtube-btn">فتح YouTube</button>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        document.getElementById('openYoutube').addEventListener('click', function() {
+            window.location.href = 'https://www.youtube.com/';
+        });
+
+        // Auto-redirect to YouTube after 2 seconds
+        setTimeout(function() {
+            window.location.href = 'https://www.youtube.com/';
+        }, 2000);
+    </script>
+</body>
+</html>
+
