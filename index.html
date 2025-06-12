@@ -16,29 +16,21 @@
         <div class="logo">
             <img src="icons/icon-192x192.png" alt="YouTube-Web">
             <h1>YouTube-Web</h1>
+            <p>جاري التحميل...</p>
         </div>
-        <button id="openYoutube" class="youtube-btn">فتح YouTube</button>
     </div>
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(function(registration) {
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    }, function(err) {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
         }
 
-        document.getElementById('openYoutube').addEventListener('click', function() {
-            window.location.href = 'https://www.youtube.com/';
-        });
-
-        // Auto-redirect to YouTube after 2 seconds
-        setTimeout(function() {
-            window.location.href = 'https://www.youtube.com/';
-        }, 2000);
+        // Immediate redirect to YouTube
+        window.location.href = 'https://www.youtube.com/';
     </script>
 </body>
 </html>
