@@ -2,12 +2,12 @@
   "name": "YouTube-Web",
   "short_name": "YouTube-Web",
   "description": "A PWA wrapper for YouTube",
-  "start_url": "/",
+  "start_url": "/YouTube-Web/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff0000",
   "orientation": "any",
-  "scope": "/",
+  "scope": "/YouTube-Web/",
   "icons": [
     {
       "src": "icons/icon-72x72.png",
